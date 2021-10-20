@@ -58,6 +58,21 @@
            
            
         </div>
+        <div class="row mt-5">
+            <div class="col-3">
+                <div class="card">
+                    <img class="card-img-top" src="imgs/admin-player.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    
+                        <h5 class="card-title">player</h5>
+                        <h5 class="card-title">Performance</h5>
+                        <asp:Button ID="Button5" runat="server" class="btn btn-success" Text="Go" OnClick="Button5_Click" />
+                   
+                    
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
     
 </asp:Content>

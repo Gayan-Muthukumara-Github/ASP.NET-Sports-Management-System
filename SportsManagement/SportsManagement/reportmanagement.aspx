@@ -18,7 +18,36 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="container">
+    <div class="container">
+        <div class="row mb-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                        <div class="row">
+                     <div class="col">
+                        <center>
+                           <h4>Report Management</h4>
+                        </center>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <center>
+                           <img width="100px" src="imgs/4.png" />
+                        </center>
+                     </div>
+                  </div>
+                   <div class="row">
+                     <div class="col">
+                        <p class="font-weight-bold">- Scroll down after pressing view butoon</p>
+                        </div>
+                  </div>
+                    
+                </div>
+            </div>
+       
+    </div>  
+    </div>
     <div class="row mb-5">
         <div class="col-12">
             <div class="card">
@@ -50,7 +79,7 @@
                             <h4 class="text-center">View Country’s Medals</h4>
                             <div class="input-group">
                                 <div class="col-6">
-                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Search By Country"></asp:TextBox>
+                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Search By Country" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
                                 </div>
                                 <div class="col-6">
                                      <asp:Button ID="Button1" class="btn  btn-block btn-danger" runat="server" Text="View" OnClick="Button1_Click"  />
@@ -115,7 +144,7 @@
                 <div class="card-body">
                   
                         <div class="form-group">
-                            <h4 class="text-center">View World Records achieved Country</h4>
+                            <h4 class="text-center">Overall World Records</h4>
                             <div class="input-group">
                                 <div class="col-12">
                                     <asp:Button class="btn  btn-block btn-danger" ID="Button5" runat="server" Text="Button" OnClick="Button5_Click" />
@@ -138,7 +167,7 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                 <asp:GridView ID="GridView3" runat="server"></asp:GridView>
                 <asp:GridView class="table table-bordered" ID="GridView1" runat="server"></asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMS_DBConnectionString10 %>" SelectCommand="SELECT event_competition.Competitor_Medal, competitor.Competitor_FName, competitor.Competitor_Country FROM event_competition INNER JOIN competitor ON competitor.Competitor_ID = event_competition.Competitor_ID"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT event_competition.Competitor_Medal, competitor.Competitor_FName, competitor.Competitor_Country FROM event_competition INNER JOIN competitor ON competitor.Competitor_ID = event_competition.Competitor_ID"></asp:SqlDataSource>
                 <asp:GridView  class="table table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                 <Columns>
                     <asp:BoundField DataField="Competitor_Medal" HeaderText="Competitor_Medal" SortExpression="Competitor_Medal" />

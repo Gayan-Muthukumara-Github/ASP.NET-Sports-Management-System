@@ -65,6 +65,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('Event does not exist');</script>");
             }
         }
+        //Get Event Details Function
         void getEventByID()
         {
             try
@@ -88,7 +89,7 @@ namespace SportsManagement
                         starttime.Text = dr.GetValue(5).ToString();
                         endtime.Text = dr.GetValue(6).ToString();
                         eventdescription.Text = dr.GetValue(7).ToString();
-                        worldrecord.Text = dr.GetValue(8).ToString();
+                        
 
 
                     }
@@ -105,6 +106,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Check Event Function
         bool checkIfEventExists()
         {
             try
@@ -138,6 +140,7 @@ namespace SportsManagement
             }
 
         }
+        //Add New Event Function
         void addNewEvent()
         {
             try
@@ -158,7 +161,7 @@ namespace SportsManagement
                 cmd.Parameters.AddWithValue("@event_stime", starttime.Text.Trim());
                 cmd.Parameters.AddWithValue("@event_etime", endtime.Text.Trim());
                 cmd.Parameters.AddWithValue("@event_description", eventdescription.Text.Trim());
-                cmd.Parameters.AddWithValue("@event_wrecord", worldrecord.Text.Trim());
+                cmd.Parameters.AddWithValue("@event_wrecord", DropDownList1.SelectedItem.Value);
 
 
                 cmd.ExecuteNonQuery();
@@ -172,6 +175,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Update Event Function
         void updateEvent()
         {
             try
@@ -192,7 +196,7 @@ namespace SportsManagement
                 cmd.Parameters.AddWithValue("@start_time", starttime.Text.Trim());
                 cmd.Parameters.AddWithValue("@end_time", endtime.Text.Trim());
                 cmd.Parameters.AddWithValue("@event_description", eventdescription.Text.Trim());
-                cmd.Parameters.AddWithValue("@world_record", worldrecord.Text.Trim());
+                cmd.Parameters.AddWithValue("@world_record", DropDownList1.SelectedItem.Value);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -205,6 +209,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Delete Event Function
         void deleteEvent()
         {
             try
@@ -229,6 +234,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Clear TExt Feild
         void clearForm()
         {
             eventid.Text = "";
@@ -238,8 +244,9 @@ namespace SportsManagement
             starttime.Text = "";
             endtime.Text = "";
             eventdescription.Text = "";
-            worldrecord.Text ="";
+            
         }
+        //Find Game_ID
         void fillGameIdValues()
         {
             try
@@ -265,10 +272,20 @@ namespace SportsManagement
 
             }
         }
-
+        //home
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("index.aspx");
+        }
+
+        protected void eventdate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

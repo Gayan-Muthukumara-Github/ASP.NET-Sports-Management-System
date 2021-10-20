@@ -32,6 +32,13 @@
                         </center>
                      </div>
                   </div>
+                   <div class="row">
+                     <div class="col">
+                        <p class="font-weight-bold">- To add an event, please fill the form and press “<span class="text-primary">ADD</span>” </p>
+                        <p class="font-weight-bold">- To edit an entry, type the event ID in the form and press go. After doing relevant changes press “<span class="text-warning">UPDATE</span>” </p>
+                        <p class="font-weight-bold">- To delete an entry, type the event ID in the form and press go. After that press “<span class="text-danger">DELETE</span>” </p>
+                     </div>
+                  </div>
                   <div class="row">
                      <div class="col">
                         <hr>
@@ -43,9 +50,8 @@
   
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="eventid" runat="server" placeholder="Event ID"></asp:TextBox>
+                              <asp:TextBox CssClass="form-control" ID="eventid" runat="server" placeholder="Event ID" ></asp:TextBox>
                               <asp:Button ID="go" class="btn btn-success" runat="server" Text="Go" OnClick="go_Click"   />
-
                            </div>
                         </div>
                      </div>
@@ -72,7 +78,7 @@
                         <label>Event Venue</label>
   
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="eventvenue" runat="server" placeholder="Event Venue" ></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="eventvenue" runat="server" placeholder="Event Venue" ></asp:TextBox>
                         </div>
                      </div>
                   </div>
@@ -82,7 +88,7 @@
   
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="eventdate" runat="server" placeholder="Event Date" TextMode="Date"></asp:TextBox>
+                              <asp:TextBox CssClass="form-control" ID="eventdate" runat="server" placeholder="Event Date" TextMode="Date" OnTextChanged="eventdate_TextChanged"></asp:TextBox>
                            </div>
                         </div>
                       </div>
@@ -91,7 +97,10 @@
   
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="worldrecord" runat="server" placeholder="World record"></asp:TextBox>
+                              <asp:DropDownList class="form-control" ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                  <asp:ListItem Text="yes" Value="yes" />
+                                  <asp:ListItem Text="no" Value="no" />
+                              </asp:DropDownList>                          
                            </div>
                         </div>
                      </div>
@@ -159,8 +168,7 @@
                      </div>
                   </div>
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMS_DBConnectionString5 %>" SelectCommand="SELECT * FROM [event]"></asp:SqlDataSource>
-                      <div class="col-12">
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [event]"></asp:SqlDataSource>
                           <asp:GridView class="table table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Event_ID" DataSourceID="SqlDataSource1" >
                               <Columns>
                                   <asp:BoundField DataField="Event_ID" HeaderText="Event_ID" ReadOnly="True" SortExpression="Event_ID" />
@@ -168,10 +176,10 @@
                                   <asp:BoundField DataField="FeatureEvent" HeaderText="FeatureEvent" SortExpression="FeatureEvent" />
                                   <asp:BoundField DataField="EventVenue" HeaderText="EventVenue" SortExpression="EventVenue" />
                                   <asp:BoundField DataField="EventDate" HeaderText="EventDate" SortExpression="EventDate" />
-                                  <asp:BoundField DataField="EventDescription" HeaderText="EventDescription" SortExpression="EventDescription" />
-                                  <asp:BoundField DataField="WorldRecord" HeaderText="WorldRecord" SortExpression="WorldRecord" />
                                   <asp:BoundField DataField="EventStartTime" HeaderText="EventStartTime" SortExpression="EventStartTime" />
                                   <asp:BoundField DataField="EventEndTime" HeaderText="EventEndTime" SortExpression="EventEndTime" />
+                                  <asp:BoundField DataField="EventDescription" HeaderText="EventDescription" SortExpression="EventDescription" />
+                                  <asp:BoundField DataField="WorldRecord" HeaderText="WorldRecord" SortExpression="WorldRecord" />
                               </Columns>
                           </asp:GridView>
                      </div>
@@ -179,8 +187,7 @@
                </div>
             </div>
          </div>
-      </div>
-        <div class="row m-3">
+      <div class="row m-3">
             <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" />
         </div>
    </div>

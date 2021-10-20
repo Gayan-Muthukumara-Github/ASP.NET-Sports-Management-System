@@ -62,6 +62,7 @@ namespace SportsManagement
             }
 
         }
+        //Get GAme details Function
         void getGameByID()
         {
             try
@@ -98,6 +99,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Add New Game Function
         void addNewGame()
         {
             try
@@ -128,6 +130,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Check Game Function
         bool checkIfGameExists()
         {
             try
@@ -161,6 +164,7 @@ namespace SportsManagement
             }
             
         }
+        //Update Game Function
         void updateGame()
         {
             try
@@ -189,6 +193,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Delete Game function
         void deleteGame()
         {
             try
@@ -213,6 +218,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Clear Text feild
         void clearForm()
         {
             gameid.Text = "";
@@ -226,10 +232,15 @@ namespace SportsManagement
         {
 
         }
-
+        //home
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("index.aspx");
+        }
+
+        protected void gamecode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminpage.aspx" />
+    <Content Include="App_Data\SMS_DB.mdf" />
+    <Content Include="App_Data\SMS_DB_log.ldf">
+      <DependentUpon>SMS_DB.mdf</DependentUpon>
+    </Content>
     <Content Include="boostrap\css\bootstrap.min.css" />
     <Content Include="boostrap\js\bootstrap.min.js" />
     <Content Include="boostrap\js\jquery-3.3.1.slim.min.js" />
@@ -1727,24 +1731,12 @@
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="gamemanagement.aspx" />
     <Content Include="imgs\adminuser.png" />
-    <Content Include="imgs\book-online.png" />
-    <Content Include="imgs\books.png" />
-    <Content Include="imgs\books1.png" />
-    <Content Include="imgs\defaulters-list.png" />
-    <Content Include="imgs\digital-data.png" />
-    <Content Include="imgs\digital-inventory.png" />
     <Content Include="imgs\game.png" />
     <Content Include="imgs\generaluser.png" />
-    <Content Include="imgs\home-bg.jpg" />
-    <Content Include="imgs\in-homepage-banner.jpg" />
-    <Content Include="imgs\library.png" />
-    <Content Include="imgs\publisher.png" />
-    <Content Include="imgs\search-online.png" />
-    <Content Include="imgs\sign-up.png" />
-    <Content Include="imgs\writer.png" />
-    <Content Include="imgs\index.png" />
+    <Content Include="imgs\player.png" />
     <Content Include="index.aspx" />
     <Content Include="loginmodule.aspx" />
+    <Content Include="playerperformance.aspx" />
     <Content Include="reportmanagement.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -1805,6 +1797,13 @@
     </Compile>
     <Compile Include="loginmodule.aspx.designer.cs">
       <DependentUpon>loginmodule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="playerperformance.aspx.cs">
+      <DependentUpon>playerperformance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="playerperformance.aspx.designer.cs">
+      <DependentUpon>playerperformance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportmanagement.aspx.cs">

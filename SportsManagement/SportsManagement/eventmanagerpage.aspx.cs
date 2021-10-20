@@ -13,12 +13,12 @@ namespace SportsManagement
         {
            
         }
-
+        //Event Managment
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("eventmanagement.aspx");
         }
-
+        //Report Mangment
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("reportmanagement.aspx");

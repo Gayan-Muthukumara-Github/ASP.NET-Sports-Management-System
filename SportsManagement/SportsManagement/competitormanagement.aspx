@@ -32,6 +32,13 @@
                         </center>
                      </div>
                   </div>
+                   <div class="row">
+                     <div class="col">
+                        <p class="font-weight-bold">- To add a competitor, please fill the form and press “<span class="text-primary">ADD</span>” </p>
+                        <p class="font-weight-bold">- To edit an entry, type the competitor ID in the form and press go. After doing relevant changes press “<span class="text-warning">UPDATE</span>” </p>
+                        <p class="font-weight-bold">- To delete an entry, type the competitor ID in the form and press go. After that press “<span class="text-danger">DELETE</span>” </p>
+                     </div>
+                  </div>
                   <div class="row">
                      <div class="col">
                         <hr>
@@ -43,9 +50,8 @@
   
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="competitorid" runat="server" placeholder="Competitor ID"></asp:TextBox>
+                              <asp:TextBox CssClass="form-control" ID="competitorid" runat="server" placeholder="Competitor ID" OnTextChanged="competitorid_TextChanged"></asp:TextBox>
                               <asp:Button ID="go" class="btn btn-success" runat="server" Text="Go" OnClick="go_Click"    />
-
                            </div>
                         </div>
                      </div>
@@ -63,7 +69,7 @@
   
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="surname" runat="server" placeholder="Surname" ></asp:TextBox>
-                        </div>
+                         </div>
                      </div>
                   </div>
                   <div class="row">
@@ -93,6 +99,7 @@
                         <div class="form-group">
                            <div class="input-group">
                               <asp:TextBox ID="bio" runat="server" CssClass="form-control" placeholder="Bio Details" server="" TextMode="MultiLine"></asp:TextBox>
+                               
                            </div>
                         </div>
                      </div>
@@ -129,11 +136,11 @@
                      </div>
                   </div>
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMS_DBConnectionString7 %>" SelectCommand="SELECT * FROM [competitor]"></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [competitor]"></asp:SqlDataSource>
                        <div class="col">
-                              <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Competitor_ID" DataSourceID="SqlDataSource1" >
+                          <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Competitor_ID" DataSourceID="SqlDataSource1" >
                                   <Columns>
-                                      <asp:BoundField DataField="Competitor_ID" HeaderText="Competitor_ID" InsertVisible="False" ReadOnly="True" SortExpression="Competitor_ID" />
+                                      <asp:BoundField DataField="Competitor_ID" HeaderText="Competitor_ID" ReadOnly="True" SortExpression="Competitor_ID" />
                                       <asp:BoundField DataField="Competitor_FName" HeaderText="Competitor_FName" SortExpression="Competitor_FName" />
                                       <asp:BoundField DataField="Competitor_Surname" HeaderText="Competitor_Surname" SortExpression="Competitor_Surname" />
                                       <asp:BoundField DataField="Competitor_DOB" HeaderText="Competitor_DOB" SortExpression="Competitor_DOB" />
@@ -148,7 +155,7 @@
             </div>
          </div>
       </div>
-        <div class="row m-3">
+      <div class="row m-3">
             <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Back" OnClick="Button1_Click"  />
         </div>
    </div>

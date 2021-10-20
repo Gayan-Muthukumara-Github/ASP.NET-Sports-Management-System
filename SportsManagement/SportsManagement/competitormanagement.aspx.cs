@@ -21,6 +21,7 @@ namespace SportsManagement
         protected void go_Click(object sender, EventArgs e)
         {
             getCompetitorByID();
+            
         }
         //Add
         protected void Button2_Click(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('Competitor does not exist');</script>");
             }
         }
+        //Get Competitor details 
         void getCompetitorByID()
         {
             try
@@ -98,6 +100,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Add New Competitor Function
         void addNewCompetitor()
         {
             try
@@ -129,6 +132,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Check Competitoe Function
         bool checkIfCompetitorExists()
         {
             try
@@ -162,6 +166,7 @@ namespace SportsManagement
             }
 
         }
+        //Update Competitor Function
         void updateCompetitor()
         {
             try
@@ -192,6 +197,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Delete Competitor Function
         void deleteCompetitor()
         {
             try
@@ -216,6 +222,7 @@ namespace SportsManagement
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //Clear Text Field
         void clearForm()
         {
             competitorid.Text="";
@@ -225,10 +232,15 @@ namespace SportsManagement
             country.Text="";
             bio.Text="";
         }
-
+        //home
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("index.aspx");
+        }
+
+        protected void competitorid_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

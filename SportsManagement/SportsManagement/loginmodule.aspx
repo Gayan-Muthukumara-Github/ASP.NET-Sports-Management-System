@@ -38,14 +38,6 @@
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="userpassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                         </div>
-                         <label>User Type</label>
-                        <div class="form-group">
-                           <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">  
-                               <asp:ListItem Value="Admin">Admin</asp:ListItem>
-                               <asp:ListItem Value="Event Manager">Event Manager</asp:ListItem>  
-
-                           </asp:DropDownList>
-                        </div>
                         <div class="form-group">
                            <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click"  />
                         </div>

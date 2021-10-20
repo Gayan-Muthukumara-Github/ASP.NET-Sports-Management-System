@@ -32,6 +32,13 @@
                         </center>
                      </div>
                   </div>
+                   <div class="row">
+                     <div class="col">
+                        <p class="font-weight-bold">- To add a game, please fill the form and press “<span class="text-primary">ADD</span>” </p>
+                        <p class="font-weight-bold">- To edit an entry, type the Game ID in the form and press go. After doing relevant changes press “<span class="text-warning">UPDATE</span>” </p>
+                        <p class="font-weight-bold">- To delete an entry, type the Game ID in the form and press go. After that press “<span class="text-danger">DELETE</span>” </p>
+                     </div>
+                  </div>
                   <div class="row">
                      <div class="col">
                         <hr>
@@ -45,7 +52,6 @@
                            <div class="input-group">
                               <asp:TextBox CssClass="form-control" ID="gameid" runat="server" placeholder="ID"></asp:TextBox>
                               <asp:Button ID="go" class="btn btn-success" runat="server" Text="Go" OnClick="go_Click"  />
-
                            </div>
                         </div>
                      </div>
@@ -53,20 +59,21 @@
                         <label>Game Code</label>
   
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="gamecode" runat="server" placeholder="Game Code" ></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="gamecode" runat="server" placeholder="Game Code" OnTextChanged="gamecode_TextChanged" ></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter 4 Uppercase letter & 3 numbers " ControlToValidate="gamecode" ValidationExpression="^[A-Z]{4}[0-9]{3}$"></asp:RegularExpressionValidator>
                         </div>
                      </div>
                   </div>
-                   <div class="row">
+                  <div class="row">
                      <div class="col-md-6">
                         <label>Game Duration Hours</label>
   
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="gamedhours" runat="server" placeholder="Game Duration Hours" TextMode="Number"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="gamedhours" runat="server" placeholder="Required" TextMode="Number"></asp:TextBox>
                         </div>
                      </div>
                   </div>
-                   <div class="row">
+                  <div class="row">
                        <div class="col-md-12">
                         <label>Game Name</label>
   
@@ -77,13 +84,13 @@
                         </div>
                      </div>
                   </div>
-                   <div class="row">
+                  <div class="row">
                      <div class="col-md-12">
                         <label>Game Description</label>
   
                         <div class="form-group">
                            <div class="input-group">
-                              <asp:TextBox CssClass="form-control" ID="gamedescription" runat="server" placeholder="Game Description" TextMode="MultiLine"></asp:TextBox>
+                              <asp:TextBox CssClass="form-control" ID="gamedescription" runat="server" placeholder="Required" TextMode="MultiLine"></asp:TextBox>
                            </div>
                         </div>
                      </div>
@@ -120,11 +127,11 @@
                      </div>
                   </div>
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMS_DBConnectionString %>" SelectCommand="SELECT * FROM [game]"></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [game]"></asp:SqlDataSource>
                       <div class="col">
                           <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Game_ID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                               <Columns>
-                                  <asp:BoundField DataField="Game_ID" HeaderText="Game_ID" InsertVisible="False" ReadOnly="True" SortExpression="Game_ID" />
+                                  <asp:BoundField DataField="Game_ID" HeaderText="Game_ID" ReadOnly="True" SortExpression="Game_ID" />
                                   <asp:BoundField DataField="Game_Code" HeaderText="Game_Code" SortExpression="Game_Code" />
                                   <asp:BoundField DataField="Game_Name" HeaderText="Game_Name" SortExpression="Game_Name" />
                                   <asp:BoundField DataField="Game_DurationInHours" HeaderText="Game_DurationInHours" SortExpression="Game_DurationInHours" />
@@ -137,7 +144,7 @@
             </div>
          </div>
       </div>
-        <div class="row m-3">
+      <div class="row m-3">
             <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" />
         </div>
    </div>
